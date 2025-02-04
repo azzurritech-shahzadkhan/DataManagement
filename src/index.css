@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(
+    236.2deg,
+    #011738 6.5%,
+    #012e73 26.11%,
+    #0164ff 46.51%,
+    #01317e 66.13%,
+    #01235b 84.96%
+  );
+}
+
+.side_bar {
+  height: calc(100vh - 40px);
+  background: linear-gradient(
+    97.12deg,
+    #06143c 30.23%,
+    rgba(26, 31, 55, 0) 100%
+  );
+  backdrop-filter: blur(120px);
+}
+.custom_border {
+  border-bottom: 1px solid;
+  border-image-source: linear-gradient(
+    90deg,
+    rgba(224, 225, 226, 0) 0%,
+    #e0e1e2 49.52%,
+    rgba(224, 225, 226, 0.15625) 99.04%
+  );
+  border-image-slice: 1;
+}
+
+.chart {
+  background: linear-gradient(
+    126.97deg,
+    rgba(6, 11, 40, 0.74) 28.26%,
+    rgba(10, 14, 35, 0.71) 91.2%
+  );
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.\[\&_\.recharts-cartesian-axis-tick_text\]\:fill-muted-foreground
+  .recharts-cartesian-axis-tick
+  text {
+  fill: white !important;
+}
+
+.apexcharts-text tspan {
+  fill: white;
+}
+
+.scrollbar {
+  scrollbar-width: none !important;
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.graph-status {
+  height: calc(100vh - 60vh);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.sign-up-bg {
+  background: linear-gradient(
+    159.02deg,
+    #0f123b 14.25%,
+    #090d2e 56.45%,
+    #020515 86.14%
+  );
+}
+
+.input-border {
+  border: 2px solid;
+  border-image-source: radial-gradient(
+      69.43% 69.43% at 50% 50%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      60% 51.57% at 50% 50%,
+      #582cff 0%,
+      rgba(88, 44, 255, 0) 100%
+    ),
+    radial-gradient(54.8% 53% at 50% 50%, #151515 0%, rgba(21, 21, 21, 0) 100%);
+  border-image-slice: 1;
+}
