@@ -1,17 +1,18 @@
 
 import{ useEffect, useState } from "react";
-import  {Breadcrumbs}  from "@/components/BreadCrumbs";
+// import  {Breadcrumbs}  from "@/components/BreadCrumbs";
 import  Heading  from "@/components/Heading";
 import { Separator } from "@/components/ui/separator";
 import { useChat } from "ai/react";
 import AimodelOverview from "./AiModelOverview";
 import { Message as PreviewMessage } from "@/components/Message";
-import MultiModel from "@/components/multimodel";
+
 import ModelInput from "@/components/ModalInput";
 import ChatNavbar from "@/components/chatnavbar";
 
-import ChatSideBar from "@/components/ChatSideBar"
+// import ChatSideBar from "@/components/ChatSideBar"
 import PageContainer from "./PageContainer";
+import MultiModel from "../Multimodel";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/" },
