@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { AppleIcon } from 'lucide-react'
-import { Link } from 'react-router'
-import { FaceBook, GoogleIcon } from '@/assets/sign-up-icons/SignUpIcon'
+// import { AppleIcon } from 'lucide-react'
+import { Link, Navigate, useNavigate } from 'react-router'
+// import { FaceBook, GoogleIcon } from '@/assets/sign-up-icons/SignUpIcon'
 import axios from 'axios'
 
 const RegisterForm = () => {
@@ -10,9 +10,19 @@ const RegisterForm = () => {
     email: '',
     password: ''
   })
+   const navigate=useNavigate()
 
+  // console.log("form data is coming here",formData)
   const [success, setSuccess] = useState(null)
   const [error, setError] = useState(null)
+   const passwordValidationRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+     const validatePassword = (password) => {
+    if (!passwordValidationRegex.test(password)) {
+      return "Password must contain at least one uppercase letter, one special character, and one number.";
+    }
+    return null;
+  };
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -22,24 +32,39 @@ const RegisterForm = () => {
     e.preventDefault()
     setError(null)
     setSuccess(null)
+       const passwordError = validatePassword(formData.password);
+    if (passwordError) {
+      setError(passwordError);
+      return; 
+    }
 
     try {
-      const response = await axios.post(
-        'https://q0k6r4m5-8000.euw.devtunnels.ms/signup',
+        const response = await axios.post(
+        'https://data-mangement.vercel.app/signup',
         formData,
         {
-          headers: {
-            'Content-Type': 'application/json',
-            Cookie:
-              '.Tunnels.Relay.WebForwarding.Cookies=CfDJ8E0FHi1JCVNKrny-ARCYWxPdmuWdvQ81PqM6ah_hgCWdC5fTFR...'
-          }
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
         }
       )
-      setSuccess('Registration successful!')
-      console.log('Response:', response.data)
+      if(response.status==="200"){
+         setSuccess('Registration successful!')
+      console.log('Response is coming here:', response.data)
+    navigate("/")
+      }
+     
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed')
-      console.error('Error:', err)
+      // setError(err.response?.data?.message || 'Registration failed')
+      if(err.response?.status==422){
+         setError('Password does not meet the required criteria or other validation issue.');
+      }else{
+         setError(err.response?.data?.message || 'Registration failed');
+      }
+    
+    
+      console.error('Error is this:', err)
     }
   }
 
@@ -51,7 +76,7 @@ const RegisterForm = () => {
             <h6 className='text-[13px] leading-[23.4px] font-bold  text-white text-center'>
               Register with
             </h6>
-            <div className='flex gap-2 mt-[10px] justify-center'>
+            {/* <div className='flex gap-2 mt-[10px] justify-center'>
               <div className='border rounded-[5px]  p-[5px] cursor-pointer flex items-center justify-center'>
                 <FaceBook />
               </div>
@@ -61,10 +86,10 @@ const RegisterForm = () => {
               <div className='border rounded-[5px] flex items-center justify-center  p-[5px] cursor-pointer '>
                 <GoogleIcon />
               </div>
-            </div>
-            <p className='text-[rgba(160,174,192,1)] text-[12px] leading-[20.2px] font-bold text-center mt-2'>
+            </div> */}
+            {/* <p className='text-[rgba(160,174,192,1)] text-[12px] leading-[20.2px] font-bold text-center mt-2'>
               or
-            </p>
+            </p> */}
             <div className='flex flex-col w-full gap-2'>
               <div className='flex flex-col gap-1 w-full'>
                 <label className='text-white text-[14px] font-medium leading-[19.6px]'>

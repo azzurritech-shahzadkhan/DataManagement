@@ -6,7 +6,7 @@ export const RevenueGradientChartData = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8004/gradient-chart-data')
+      .get('https://dash-board-apis.vercel.app/gradient-chart-data')
       .then(response => {
         const data = response.data.data.map(item => ({
           month: item.month.trim(),
@@ -25,7 +25,7 @@ export const RevenuePriceBarChart = () => {
   const [revenuePriceChartData, setRevenuePriceChartData] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:8004/revenue/bar-chart-data')
+      .get('https://dash-board-apis.vercel.app/revenue/bar-chart-data')
       .then(res => setRevenuePriceChartData(res.data.data))
   }, [])
 

@@ -10,7 +10,7 @@ const Billing = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8001/chart-data')
+      .get('https://dash-board-apis.vercel.app/chart-data')
       .then(response => {
         setItem(response.data);
       })

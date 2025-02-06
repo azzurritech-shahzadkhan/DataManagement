@@ -1,46 +1,57 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { useState } from 'react'
+import { Link,useNavigate } from 'react-router-dom'
+
 
 const LoginForm = () => {
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
-  });
-
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  })
+  const navigate= useNavigate();
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+ 
 
   // Handle input changes
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   // Handle form submission
-  const handleLoginUser = async (e) => {
-    e.preventDefault(); // Prevents page reload
+  const handleLoginUser = async e => {
+    e.preventDefault() // Prevents page reload
 
     try {
       const response = await axios.post(
-        'https://q0k6r4m5-8000.euw.devtunnels.ms/signin',
+        'https://data-mangement.vercel.app/signin',
         formData,
         {
           headers: { 'Content-Type': 'application/json' }
         }
-      );
-
-      setSuccess('Login successful!');
-      setError('');
-      console.log('Login successful:', response.data);
+      )
 
      
-      localStorage.setItem('token', response.data.token);
-
+        
+  if (response.status === 200) {  // Check for successful response status
+    setSuccess('Login successful!');
+    setError('');
+    console.log('Login successful:', response.data);
+     navigate('/dashboard');  // Redirect to the dashboard page
+  }
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
-      setSuccess('');
+      // setError(err.response?.data?.message || 'Login failed');
+      if (err.response.status === '404') {
+        setError('Email not found. Please check your email or sign up.')
+      } else if (err.response.status === '401') {
+        setError('Incorrect password. Please try again')
+      } else {
+        setError('Registration failed')
+      }
+      setSuccess('')
     }
-  };
+  }
 
   return (
     <>
@@ -100,7 +111,7 @@ const LoginForm = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

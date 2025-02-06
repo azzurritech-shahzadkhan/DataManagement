@@ -2,19 +2,6 @@
 
 import { Bar, BarChart, XAxis, Tooltip, Cell, YAxis } from 'recharts'
 
-// Inline Chart Data
-// const chartData = [
-//   { month: 'Brand 1', desktop: 900 },
-//   { month: 'Brand 2', desktop: 305 },
-//   { month: 'Brand 3', desktop: 237 },
-//   { month: 'Brand 4', desktop: 73 },
-//   { month: 'Brand 5', desktop: 209 },
-//   { month: 'Brand 6', desktop: 214 },
-//   { month: 'Brand 7', desktop: 237 },
-//   { month: 'Brand 8', desktop: 730 },
-//   { month: 'Brand 9', desktop: 209 },
-//   { month: 'Brand 10', desktop: 714 }
-// ]
 
 // Array of colors for each bar
 const barColors = [

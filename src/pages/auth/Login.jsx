@@ -48,7 +48,7 @@ const Login = () => {
           </div>
           <div className='mt-5'>
           <Link to="/dashboard">
-            <p className='text-white hover:underline hover:text-blue-700'>Back to the dashboard</p>
+            <p className='text-white hover:underline hover:text-blue-700'>GO to  dashboard</p>
             </Link>
           </div>
         </div>
