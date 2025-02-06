@@ -1,4 +1,4 @@
-import Container from './container'
+import Container from './Container'
 import ChatModel from '@/components/AiAssist/ChatModel'
 
 const AiAssistant = () => {
