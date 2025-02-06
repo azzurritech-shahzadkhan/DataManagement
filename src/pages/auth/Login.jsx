@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import loginBg from "@/assets/images/signup-bg.png"
-import LoginForm from '@/components/authentication/loginForm'
+import LoginForm from '@/components/authentication/LoginForm'
+
 
 
 const Login = () => {
