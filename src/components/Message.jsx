@@ -1,10 +1,11 @@
 'use client';
 
 // import { Attachment, ToolInvocation } from 'ai';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Sparkles, UserIcon } from 'lucide-react';
-import { ReactNode } from 'react';
-import { Markdown } from './markdown';
+// import { ReactNode } from 'react';
+import { Markdown } from './MarkDown';
+
 // import { PreviewAttachment } from './preview-attachment';
 // import { Weather } from './weather';
 

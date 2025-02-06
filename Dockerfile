@@ -20,4 +20,5 @@ RUN npm list vite
 EXPOSE 5173
 
 # Start Vite with explicit --host
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "dev", "--", "--host"]
+

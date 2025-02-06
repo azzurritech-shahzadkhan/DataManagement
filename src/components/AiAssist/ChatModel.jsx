@@ -1,5 +1,5 @@
 
-import{ useEffect, useState } from "react";
+import{ useState } from "react";
 // import  {Breadcrumbs}  from "@/components/BreadCrumbs";
 import  Heading  from "@/components/Heading";
 import { Separator } from "@/components/ui/separator";
@@ -8,11 +8,12 @@ import AimodelOverview from "./AiModelOverview";
 import { Message as PreviewMessage } from "@/components/Message";
 
 import ModelInput from "@/components/ModalInput";
-import ChatNavbar from "@/components/chatnavbar";
+
 
 // import ChatSideBar from "@/components/ChatSideBar"
 import PageContainer from "./PageContainer";
 import MultiModel from "../Multimodel";
+import ChatNavbar from "../ChatNavbar";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/" },
