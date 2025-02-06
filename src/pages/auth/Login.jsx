@@ -46,6 +46,11 @@ const Login = () => {
               <p className='leading-[21px]'>License</p>
             </div>
           </div>
+          <div className='mt-5'>
+          <Link to="/dashboard">
+            <p className='text-white hover:underline hover:text-blue-700'>Back to the dashboard</p>
+            </Link>
+          </div>
         </div>
       </div>
     </>
