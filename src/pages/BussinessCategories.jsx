@@ -10,7 +10,7 @@ const BussinessCategories = () => {
             <img
               className='rounded-t-lg w-full  h-[150px] '
             
-            src="src/assets/images/eCommerce.jpeg"
+            src="/public/images/eCommerce.jpeg"
               alt='error'
               width='auto'
               height={50}
@@ -54,7 +54,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="src/assets/images/health.jpg"
+              src="/public/images/health.jpg"
               alt='error'
               width='full'
               height={50}
@@ -99,7 +99,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="src/assets/images/finance.avif"
+              src="/public/images/finance.avif"
               alt='error'
               width='auto'
               height={50}
@@ -146,7 +146,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="src/assets/images/education.jpg"
+              src="/public/images/education.jpg"
               alt='error'
               width='auto'
               height={50}
@@ -190,7 +190,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="src/assets/images/smart_cities.jpeg"
+              src="/public/images/smart_cities.jpeg"
               alt='error'
               width='auto'
               height={50}
@@ -234,7 +234,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="src/assets/images/retailer.jpeg"
+              src="/public/images/retailer.jpeg"
               alt='error'
               width='auto'
               height={50}
