@@ -1,10 +1,4 @@
 import Container from './Container'
-import eCommerce from "@/assets/images/eCommerce.jpeg";
-import Health from "@/assets/images/health.jpg";
-import Finance from "@/assets/images/finance.avif";
-import education from "@/assets/images/education.jpg";
-import smart_cities from "@/assets/images/smart_cities.jpeg";
-import retailer from "@/assets/images/retailer.jpeg";
 
 const BussinessCategories = () => {
   return (
@@ -15,9 +9,10 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={eCommerce}
+            
+            src="src/assets/images/eCommerce.jpeg"
               alt='error'
-              width='full'
+              width='auto'
               height={50}
             />
           </a>
@@ -59,7 +54,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={Health}
+              src="src/assets/images/health.jpg"
               alt='error'
               width='full'
               height={50}
@@ -104,9 +99,9 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={Finance}
+              src="src/assets/images/finance.avif"
               alt='error'
-              width='full'
+              width='auto'
               height={50}
             />
           </a>
@@ -151,9 +146,9 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={education}
+              src="src/assets/images/education.jpg"
               alt='error'
-              width='full'
+              width='auto'
               height={50}
             />
           </a>
@@ -195,9 +190,9 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={smart_cities}
+              src="src/assets/images/smart_cities.jpeg"
               alt='error'
-              width='full'
+              width='auto'
               height={50}
             />
           </a>
@@ -239,9 +234,9 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src={retailer}
+              src="src/assets/images/retailer.jpeg"
               alt='error'
-              width='full'
+              width='auto'
               height={50}
             />
           </a>

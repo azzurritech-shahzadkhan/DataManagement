@@ -1,5 +1,4 @@
 import { Link } from 'react-router'
-import loginBg from "@/assets/images/signup-bg.png"
 import LoginForm from '@/components/authentication/LoginForm'
 
 
@@ -9,7 +8,7 @@ const Login = () => {
     <>
   
       <div className='grid grid-cols-2   h-screen overflow-hidden'>
-        <div className={` grid bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center`} style={{backgroundImage:`url(${loginBg})`}}>
+        <div className={` grid bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center`} style={{backgroundImage:`url('/src/assets/images/signup-bg.png')`}}>
           <div className='text-center space-y-4 '>
             <p className='font-normal text-[20px] leading-5  text-[hsla(0,0%,100%,1)] tracking-[0.18em]'>
               INSPIRED BY THE FUTURE:
