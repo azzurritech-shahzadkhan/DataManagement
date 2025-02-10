@@ -1,5 +1,8 @@
-import { AssistantIcon, BillingIcon, DashboardIcon } from "../dashboard-icons/DashboardIcon";
-
+import {
+  AssistantIcon,
+  BillingIcon,
+  DashboardIcon
+} from '../dashboard-icons/DashboardIcon'
 
 export const dummyData = [
   {
@@ -38,55 +41,52 @@ export const dummyData = [
     conv_slug:
       'team-collaboration-on-design-enhancements-for-upcoming-website-release'
   }
-];
+]
 
+export const sidebar = [
+  {
+    id: 1,
+    title: 'Delivery Analytics',
+    link: '/dashboard'
+    // icon:<DashboardIcon/>
+  },
+  {
+    id: 2,
+    title: 'Ai Assistant',
+    link: '/aiassistant'
+    // icon:<AssistantIcon/>
+  },
 
-export const sidebar=[
+  {
+    id: 3,
+    title: 'Revenue Analytics',
+    link: '/revenue-analytics'
+  },
+  {
+    id: 4,
+    title: 'Order Analytics',
+    link: '/order-analytics'
+  },
+  {
+    id: 5,
+    title: 'Performance Analytics',
+    link: '/performance-analytics'
+  },
     {
-        id:1,
-        title:"Dashboard",
-        link:"/dashboard",
-        // icon:<DashboardIcon/>
+    id: 6,
+    title: 'Bussiness Categories',
+    link: '/bussiness-categories'
+  },
+  {
+    id: 7,
+    title: 'Booking',
+    link: '/booking'
+  },
 
-    },
-    {
-        id:2,
-        title:"Ai Assistant",
-        link:"/aiassistant",
-      // icon:<AssistantIcon/>
-    },
-    {
-        id:3,
-        title:"billing",
-        link:"/billing",
-        // icon:<BillingIcon/>
-
-    },
-    {
-        id:4,
-        title:"Bussiness Categories",
-        link:"/bussiness-categories",
-        
-    },
-    {
-        id:5,
-        title:"Booking",
-        link:"/booking"
-    },
-    {
-        id:6,
-        title:"Revenue Analytics",
-        link:"/revenue-analytics"
-    }
-    ,{
-      id:7,
-      title:"Order Analytics",
-      link:"/order-analytics"
-    },
-    {
-      id:8,
-      title:"Performance Analytics",
-      link:"/performance-analytics"
-    }
-
+  {
+    id: 8,
+    title: 'billing',
+    link: '/billing'
+    // icon:<BillingIcon/>
+  }
 ]

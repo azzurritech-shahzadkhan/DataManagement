@@ -154,3 +154,18 @@ body {
     radial-gradient(54.8% 53% at 50% 50%, #151515 0%, rgba(21, 21, 21, 0) 100%);
   border-image-slice: 1;
 }
+
+.react-tabs__tab--selected{
+  background-color: rgb(59 ,130 ,246 ,  1) !important;
+  color: white !important;
+  border: none !important;
+outline: none !important;
+
+}
+.react-tabs{
+  color: white !important;
+  border: none !important;
+  
+}
+
+
