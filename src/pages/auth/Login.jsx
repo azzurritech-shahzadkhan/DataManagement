@@ -1,14 +1,14 @@
 import { Link } from 'react-router'
 import LoginForm from '@/components/authentication/LoginForm'
 
-
-
 const Login = () => {
   return (
     <>
-  
       <div className='grid grid-cols-2   h-screen overflow-hidden'>
-        <div className={` grid bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center`} style={{backgroundImage:`url('/public/images/signup-bg.png')`}}>
+        <div
+          className={` grid bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center`}
+          style={{ backgroundImage: `url('/public/images/signup-bg.png')` }}
+        >
           <div className='text-center space-y-4 '>
             <p className='font-normal text-[20px] leading-5  text-[hsla(0,0%,100%,1)] tracking-[0.18em]'>
               INSPIRED BY THE FUTURE:
@@ -32,7 +32,7 @@ const Login = () => {
               </div>
             </div>
 
-          <LoginForm/>
+            <LoginForm />
           </div>
 
           <div className='text-white mt-5 text-[rgba(160,174,192,1)]  max-w-[421px] justify-center'>
@@ -46,8 +46,10 @@ const Login = () => {
             </div>
           </div>
           <div className='mt-5'>
-          <Link to="/dashboard">
-            <p className='text-white hover:underline hover:text-blue-700'>GO to  dashboard</p>
+            <Link to='/dashboard'>
+              <p className='text-white hover:underline hover:text-blue-700'>
+                GO to dashboard
+              </p>
             </Link>
           </div>
         </div>
