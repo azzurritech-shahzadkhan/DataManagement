@@ -8,7 +8,7 @@ import  { useState } from 'react'
 // } from "@/components/ui/select";
 // import Image from 'next/image';
 
-export default function ChatNavbar() {
+export default function ChatNavbar({title}) {
 
     const options = [
         {
@@ -47,7 +47,7 @@ export default function ChatNavbar() {
         <div className="px-4 py-3 bg-blue-900 text-white dark:bg-transparent border-b shadow flex items-center justify-between">
             <div className='flex items-center gap-3'>
                 <h2 className="text-lg font-normal tracking-tight">
-                    AI Business Assistant
+             {title}
                 </h2>
                 <span className='text-sm text-white cursor-pointer'>See Details</span>
             </div>

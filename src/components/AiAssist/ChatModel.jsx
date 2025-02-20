@@ -164,24 +164,24 @@ const handleFormSubmit = (event) => {
 
 
   return (
-    <PageContainer scrollable={true}>
-      <div className="space-y-4 ">
+    <PageContainer scrollable={true} >
+      <div className="space-y-4  flex flex-col items-center justify-center w-full  ">
         {/* <Breadcrumbs items={breadcrumbItems} />  */}
 
-        <div className="flex items-start justify-between text-white ">
+        <div className="flex items-start justify-between text-white w-full">
           <Heading title="AI Model" description="Chat with our AI assistant below." />
         </div>
         <Separator />
 
-        <div className="h-screen border  rounded-md shadow flex flex-col lg:flex-row ">
+        <div className="h-screen border  rounded-md shadow flex flex-col lg:flex-row  w-full ">
 
-          <div className="flex-1 flex w-full flex-col h-full   text-white bg-blue-900 ">
-            <ChatNavbar />
+          <div className="flex-1 flex w-full flex-col h-full   text-white bg-blue-900 pe-[20px] ">
+            <ChatNavbar  title="AI Assistant"/>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-blue-900 dark:bg-transparent scrollbar">
               {conversation.length === 0 && !botMessage ? (
-                <div className="flex max-w-2xl mx-auto flex-col min-w-0 gap-6 flex-1">
-                  <AimodelOverview />
+                <div className="flex md:max-w-2xl  mx-auto flex-col min-w-0 gap-6 flex-1">
+                  {/* <AimodelOverview /> */}
                   <MultiModel />
                 </div>
               ) : (

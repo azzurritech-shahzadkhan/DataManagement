@@ -7,7 +7,7 @@ const PerformanceAnalytics = () => {
          
     return (
     <Container>
-      <div className='mt-4 grid grid-cols-2 gap-4'>
+      <div className='mt-4 grid xl:grid-cols-2  grid-cols-1 gap-4'>
         <div>
           <CustomerRecomendationChat />
         </div>

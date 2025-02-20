@@ -46,14 +46,15 @@ const ApexChart = () => {
       title: {
         text: 'HeatMap Chart with Color Range',
         style:{
-            color:"white"
+            color:"white",
+            fontSize:"10px"
         }
       },
     },
   });
 
   return (
-    <div id="chart">
+    <div id="chart" className='w-full overflow-x-auto  scrollbar'>
       <ReactApexChart options={state.options} series={state.series} type="heatmap" height={350} />
     </div>
   );

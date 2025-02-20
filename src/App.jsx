@@ -11,6 +11,11 @@ import Setting from './pages/Setting'
 import Profile from './pages/Profile'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
+import Cart from './pages/Cart'
+// import { Checkout } from './pages/Checkout'
+import Success from './pages/Success'
+import Cancel from './pages/Cancel'
+import Tracking from './pages/Tracking'
 
 function App () {
   return (
@@ -35,6 +40,11 @@ function App () {
           <Route path='/profile' element={<Profile />} />
           <Route path='/setting' element={<Setting />} />
           <Route path='/auth/Register' element={<Register />} />
+          <Route path='/cart' element={<Cart/>}/>
+          {/* <Route path='/checkout' element={<Checkout/>}/> */}
+          <Route path='/success' element={<Success/>}/>
+          <Route path='/cancel' element={<Cancel/>}/>
+          <Route path='/tracking' element={<Tracking/>}/>
         </Routes>
       </BrowserRouter>
     </>

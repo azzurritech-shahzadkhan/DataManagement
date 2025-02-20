@@ -43,8 +43,8 @@ const renderCustomizedLabel = ({
 function PieChartCircle () {
   const pieChartData=PieChartApi()
   return (
-    <ResponsiveContainer width='100%' height='100%'>
-      <PieChart width={900} height={900}>
+    <ResponsiveContainer   minHeight={500} className="overflow-x-auto" > 
+      <PieChart  minWidth="500px">
         <Pie
           data={pieChartData}
           cx='50%'

@@ -1,16 +1,17 @@
+import { Link } from 'react-router'
 import Container from './Container'
+
 
 const BussinessCategories = () => {
   return (
     <Container>
-      <div className='flex gap-2'>
-      {/* E_commerce */}
+      <div className='grid xl:grid-cols-3 md:grid-cols-2 xl:gap-2  gap-5'>
+        {/* E_commerce */}
         <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-            
-            src="/public/images/eCommerce.jpeg"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='auto'
               height={50}
@@ -26,8 +27,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='dashboard'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -46,7 +47,7 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
         {/* Health_care */}
@@ -54,7 +55,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="/public/images/health.jpg"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='full'
               height={50}
@@ -70,8 +71,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='dashboard'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -90,7 +91,7 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -99,7 +100,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="/public/images/finance.avif"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='auto'
               height={50}
@@ -115,8 +116,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='finance'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -135,18 +136,14 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
-      </div>
-      
-      <div className='flex gap-2 mt-2'>
-        {/*     Education */}
-        <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
+          <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="/public/images/education.jpg"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='auto'
               height={50}
@@ -162,8 +159,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='education'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -182,7 +179,7 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
         {/* Smart_cities */}
@@ -190,7 +187,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="/public/images/smart_cities.jpeg"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='auto'
               height={50}
@@ -206,8 +203,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='smart-cities'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -226,7 +223,7 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
         {/* Retail */}
@@ -234,7 +231,7 @@ const BussinessCategories = () => {
           <a href='#'>
             <img
               className='rounded-t-lg w-full  h-[150px] '
-              src="/public/images/retailer.jpeg"
+              src='src/assets/images/signup-bg.png'
               alt='error'
               width='auto'
               height={50}
@@ -250,8 +247,8 @@ const BussinessCategories = () => {
               Here are the biggest enterprise technology acquisitions of 2021 so
               far, in reverse chronological order.
             </p>
-            <a
-              href='retail'
+            <Link
+              to='/dashboard'
               className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
             >
               Explore
@@ -270,10 +267,15 @@ const BussinessCategories = () => {
                   d='M1 5h12m0 0L9 1m4 4L9 9'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
+
+      {/* <div className='flex gap-2 mt-2'>
+     
+      
+      </div> */}
     </Container>
   )
 }

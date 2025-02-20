@@ -10,8 +10,8 @@ const Dashboard = () => {
   return (
     <Container>
       <div className='w-full'>
-        <div className='w-full  grid lg:grid-cols-2 md:grid-cols-1'>
-          <div>
+        <div className='w-full  grid grid-cols-1 lg:grid-cols-2 overflow-x-auto    sm:pe-0 pe-[50px]'>
+          <div className='w-full   overflow-x-auto  scrollbar'>
             <ApexChart />
           </div>
           <div className='overflow-x-auto scrollbar'>

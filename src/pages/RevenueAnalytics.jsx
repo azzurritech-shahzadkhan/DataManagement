@@ -8,7 +8,7 @@ const RevenueAnalytics = () => {
   
   return (
     <Container>
-      <div className='grid grid-cols-2 gap-4 mt-4 '>
+      <div className='grid xl:grid-cols-2  gap-4 mt-4  w-full sm:pe-0 pe-10 ps-0'>
         <AreaChartGradient />
         <PriceBarChart data={data} />
       </div>

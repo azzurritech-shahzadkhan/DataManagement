@@ -56,7 +56,7 @@ const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleLoginUser}>
-        <div className='flex flex-col mt-8 w-full'>
+        <div className='flex flex-col xl:mt-8 mt-4 w-full'>
           {/* Email Field */}
           <div className='flex flex-col space-y-2 w-full'>
             <label className='text-white text-sm font-medium'>Email</label>
@@ -64,7 +64,7 @@ const LoginForm = () => {
               type='email'
               name='email'
               placeholder='Your email address'
-              className='h-12 rounded-lg bg-transparent border px-4 text-white focus:outline-none'
+              className='xl:h-12 h-9 rounded-lg bg-transparent border px-4 text-white focus:outline-none'
               value={formData.email}
               onChange={handleChange}
               required
@@ -72,13 +72,13 @@ const LoginForm = () => {
           </div>
 
           {/* Password Field */}
-          <div className='flex flex-col space-y-2 mt-6 w-full'>
+          <div className='flex flex-col space-y-2 xl:mt-6 mt-4 w-full'>
             <label className='text-white text-sm font-medium'>Password</label>
             <input
               type='password'
               name='password'
               placeholder='Your password'
-              className='h-12 rounded-lg bg-transparent border px-4 text-white focus:outline-none'
+              className='xl:h-12 h-9 rounded-lg bg-transparent border px-4 text-white focus:outline-none'
               value={formData.password}
               onChange={handleChange}
               required
@@ -90,10 +90,10 @@ const LoginForm = () => {
           {success && <p className='text-green-500 mt-2'>{success}</p>}
 
           {/* Submit Button */}
-          <div className='mt-6 w-full'>
+          <div className='xl:mt-6 mt-4 w-full'>
             <button
               type='submit'
-              className='w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600'
+              className='w-full bg-blue-500 text-white xl:py-3 lg:py-2 py-1 rounded-lg hover:bg-blue-600'
             >
               SIGN IN
             </button>
@@ -102,7 +102,7 @@ const LoginForm = () => {
           {/* Sign Up Link */}
           <div className='mt-6 text-center'>
             <p className='text-white text-sm'>
-              Don't have an account?{' '}
+              Don't have an account?
               <Link to='/auth/Register' className='underline text-blue-400'>
                 Sign up
               </Link>

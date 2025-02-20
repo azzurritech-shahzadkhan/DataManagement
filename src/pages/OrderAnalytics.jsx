@@ -7,7 +7,7 @@ const OrderAnalytics = () => {
   const data=PriceChart()
   return (
     <Container>
-      <div className='gap-4 w-full h-full grid grid-cols-2 mt-4'>
+      <div className='gap-4 w-full min-h-screen overflow-y-auto grid xl:grid-cols-2 grid-cols-1 mt-4'>
         <PriceBarChart data={data} />
         <PieChartCircle  />
       </div>

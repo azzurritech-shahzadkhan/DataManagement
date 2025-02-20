@@ -1,8 +1,9 @@
-import {
-  AssistantIcon,
-  BillingIcon,
-  DashboardIcon
-} from '../dashboard-icons/DashboardIcon'
+
+
+// import CarBlue from '@/assets/images/medicine.jpg'
+import medicine from "@/assets/images/medicine.jpg";
+import bandage from "@/assets/images/bandage.jpg";
+import drip from "@/assets/images/drip.jpg";
 
 export const dummyData = [
   {
@@ -88,5 +89,59 @@ export const sidebar = [
     title: 'billing',
     link: '/billing'
     // icon:<BillingIcon/>
+  },
+
+  {
+
+    id:9,
+    title:'Tracking',
+    link:'/tracking'
   }
+]
+
+
+export const CartItem=[
+  {
+    id:1,
+    img:medicine,
+    productName:"Medicine",
+    productPrice:123,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+   {
+    id:2,
+    img:bandage,
+    productName:"Bandage",
+    productPrice:456,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+   {
+    id:3,
+    img:drip,
+    productName:"Drip",
+    productPrice:789,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+   {
+    id:4,
+    img:bandage,
+    productName:"Bandage",
+    productPrice:789,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+   {
+    id:5,
+    img:drip,
+    productName:"Drip",
+    productPrice:789,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+   {
+    id:6,
+    img:medicine,
+    productName:"Medicine",
+    productPrice:789,
+    productDescrption:"My Deal 1 Savour Krispo, 1 Chicken Piece, 1 French Fries & 1 Drink"
+  },
+  
 ]

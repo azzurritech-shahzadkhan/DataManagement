@@ -1,12 +1,13 @@
-
-
-import RegisterForm from "@/components/authentication/RegisterForm"
+import RegisterForm from '@/components/authentication/RegisterForm'
 
 const Register = () => {
   return (
     <>
-   <div className='grid grid-cols-2   h-screen overflow-hidden'>
-        <div className={` grid bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center`} style={{backgroundImage:`url('/public/images/signup-bg.png')`}}>
+      <div className="grid min-h-screen overflow-hidden  xl:grid-cols-2 ">
+        <div
+          className={`  bg-cover bg-center w-full min-h-screen grid-cols-1 place-items-center xl:grid hidden `}
+          style={{ backgroundImage: `url('/src/assets/images/signup-bg.png')` }}
+        >
           <div className='text-center space-y-4 '>
             <p className='font-normal text-[20px] leading-5  text-[hsla(0,0%,100%,1)] tracking-[0.18em]'>
               INSPIRED BY THE FUTURE:
@@ -17,21 +18,22 @@ const Register = () => {
           </div>
         </div>
 
-        <div className='grid-cols-1 sign-up-bg   flex flex-col  justify-center ps-[80px]'>
-      <div className='flex h-full items-center'>
-<div className="flex flex-col justify-center items-center">
-<div className='text-white max-w-[333px]  text-center'>
-    <h1 className='text-[20px] font-bold leading-[20px]'>Welcome!</h1>
-    <p className='mt-[5px] font-medium text-[12px] leading-5 text-center'>Use these awesome forms to login or create new account in your project for free.
+        <div className='xl:grid-cols-1 sign-up-bg   flex flex-col justify-center  items-center  w-full  min-h-screen'>
+          <div className='flex h-full items-center justify-center w-full  '>
+            <div className='flex flex-col justify-center items-center w-full   '>
+              <div className='text-white  w-full max-w-[333px]  text-center  flex flex-col justify-center items-center '>
+                <h1 className='xl:text-[20px] text-[15px] font-bold xl:leading-[20px] leading-[15px]'>
+                  Welcome!
+                </h1>
+                <p className='xl:mt-[5px] mt-3px font-medium text-[12px] leading-5 text-center'>
+                  Use these awesome forms to login or create new account in your
+                  project for free.
+                </p>
+              </div>
 
-</p>
-</div>
-
-<RegisterForm/>
-
-</div>
-
-      </div>
+              <RegisterForm />
+            </div>
+          </div>
         </div>
       </div>
     </>
