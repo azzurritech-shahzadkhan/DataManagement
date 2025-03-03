@@ -47,21 +47,21 @@ export const dummyData = [
 export const sidebar = [
   {
     id: 1,
-    title: 'Delivery Analytics',
-    link: '/dashboard'
+    title: 'Bussiness Categories',
+    link: '/bussiness-categories '
     // icon:<DashboardIcon/>
   },
   {
     id: 2,
     title: 'Ai Assistant',
-    link: '/aiassistant'
+    link: '/assistant'
     // icon:<AssistantIcon/>
   },
 
   {
     id: 3,
-    title: 'Revenue Analytics',
-    link: '/revenue-analytics'
+    title: 'Tracking',
+    link: '/tracking'
   },
   {
     id: 4,
@@ -75,8 +75,8 @@ export const sidebar = [
   },
     {
     id: 6,
-    title: 'Bussiness Categories',
-    link: '/bussiness-categories'
+    title: 'Delivery Analytics',
+    link: '/dashboard'
   },
   {
     id: 7,
@@ -84,18 +84,25 @@ export const sidebar = [
     link: '/booking'
   },
 
-  {
-    id: 8,
-    title: 'billing',
-    link: '/billing'
-    // icon:<BillingIcon/>
-  },
+
 
   {
+
+    id:8,
+    title:'Revenue Analytics',
+    link:'/revenue-analytics'
+  },
+   {
 
     id:9,
-    title:'Tracking',
-    link:'/tracking'
+    title:'profile',
+    link:'/profile'
+  },
+  {
+
+    id:10,
+    title:'setting',
+    link:'/setting'
   }
 ]
 

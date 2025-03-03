@@ -6,8 +6,8 @@ export const PerformanceApi = () => {
 
   useEffect(() => {
     axios
-      .get('https://dash-board-apis.vercel.app/performance-chart-bar-data')
-      .then(response => {
+      .get('http://34.56.157.240:8000/performance-chart-bar-data')
+     .then(response => {
         setPerformanceChart(response.data.data)
       })
       .catch(err => console.error(err))

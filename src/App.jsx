@@ -24,8 +24,8 @@ function App () {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/aiassistant' element={<AiAssistant />} />
-          <Route path='/billing' element={<Billing />} />
+          <Route path='/assistant' element={<AiAssistant />} />
+          {/* <Route path='/billing' element={<Billing />} /> */}
           <Route
             path='/bussiness-categories'
             element={<BussinessCategories />}

@@ -48,12 +48,14 @@ const RegisterForm = () => {
           }
         }
       )
-      if (response?.status === 200) {
+      console.log('Response is coming here:', response.status)
+      if (response?.status === 201) {
         setSuccess('Registration successful!')
-        console.log('Response is coming here:', response.status)
+
         navigate('/')
       }
     } catch (err) {
+      console.log("erro is this,",err.response.status)
       // setError(err.response?.data?.message || 'Registration failed')
       if (err.response?.status == 422) {
         setError(
@@ -65,7 +67,7 @@ const RegisterForm = () => {
         setError(err.response?.data?.message || 'Registration failed')
       }
 
-      console.error('Error is this:', err)
+     
     }
   }
 

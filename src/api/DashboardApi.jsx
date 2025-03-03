@@ -6,12 +6,12 @@ import { useState, useEffect } from 'react'
 
 export const PriceChart = () => {
   const [dataPriceChart, setDataPriceChart] = useState([]); 
-  console.log("data price chart is coming here",dataPriceChart);
+  // console.log("data price chart is coming here",dataPriceChart);                     
   
 
   useEffect(() => {
     axios
-      .get('https://dash-board-apis.vercel.app/Dashboard/price-chart-data', {
+      .get('http://34.56.157.240:8000/Dashboard/price-chart-data', {
         headers: {
           'accept': 'application/json',
         },
@@ -32,7 +32,7 @@ export const PriceChart = () => {
 export const HeatMapChart = ()=>{
   const [dataHeatChart,setDataHeatChart]=useState([])
   useEffect(()=>{
-axios.get("https://dash-board-apis.vercel.app/heat-chart-data").then((res)=>setDataHeatChart(res.data.data)).catch((error)=>console.error(error))
+axios.get("http://34.56.157.240:8000/dahsboard/heat-chart-data").then((res)=>setDataHeatChart(res.data.data)).catch((error)=>console.error(error))
   },[])
   return dataHeatChart
 }

@@ -46,38 +46,7 @@ const Sidebar = ({isSidebarShow,setIsSidebarShow}) => {
             
             </ul>
           </div>
-          <div className='mt-[31px]'>
-            <p className='text-white  text-[12px] leading-[18px] font-medium'>
-              ACCOUNT PAGES
-            </p>
-
-            <ul className='w-full mt-[24px]'>
-              <li className='w-full '>
-                <button
-                  className='w-full group rounded-[15px]  hover:bg-[#1A1F37] text-white py-[12px] px-[16px] flex items-center gap-[15px] '
-                  style={{ boxShadow: '0px 3.5px 5.5px 0px #00000005' }}
-                >
-                  <span className='bg-[#061238] group-hover:bg-[#0075FF] w-[30px] h-[30px] flex items-center justify-center  rounded-[12px]'>
-                    <Profile className='text-current group-hover:text-white  text-[#0075FF]' />
-                  </span>
-                  <Link to='/profile'>Profile</Link>
-                </button>
-              </li>
-              <li className='w-full '>
-                <button
-                  className='w-full group rounded-[15px]  hover:bg-[#1A1F37] text-white py-[12px] px-[16px] flex items-center gap-[15px] '
-                  style={{ boxShadow: '0px 3.5px 5.5px 0px #00000005' }}
-                >
-                  <span className='bg-[#061238] group-hover:bg-[#0075FF] w-[30px] h-[30px] flex items-center justify-center  rounded-[12px]'>
-                    <Setting className='text-current group-hover:text-white  text-[#0075FF]' />
-                  </span>
-                  <Link to='/setting'>Settings</Link>
-                </button>
-              </li>
-               
-               
-            </ul>
-          </div>
+          
         </div>
       </div>
     </>

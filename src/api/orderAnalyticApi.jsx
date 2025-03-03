@@ -5,7 +5,7 @@ export const PieChartApi = () => {
   const [pieChartData, setPieChartData] = useState([])
   useEffect(() => {
     axios
-      .get('https://dash-board-apis.vercel.app/pie-chart-data')
+      .get('http://34.56.157.240:8000/pie-chart-data')
       .then(res => setPieChartData(res.data.data))
       .catch(err => console.log(err))
   }, [])
@@ -15,9 +15,10 @@ export const PieChartApi = () => {
 
 export const PriceBarChartData = () => {
   const [priceChartData, setPriceChartData] = useState([])
+  console.log("price chart data is this:",priceChartData);
   useEffect(() => {
     axios
-      .get('https://dash-board-apis.vercel.app/orders/bar-chart-data')
+      .get('http://34.56.157.240:8000/orders/bar-chart-data')
       .then(res => setPriceChartData(res.data.data))
   }, [])
   return priceChartData

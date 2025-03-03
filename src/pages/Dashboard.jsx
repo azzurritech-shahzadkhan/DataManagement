@@ -5,8 +5,19 @@ import Container from './Container'
 import { PriceBarChart } from '@/components/dashboard/PriceBarChart'
 
 import { PriceChart } from '@/api/DashboardApi'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
+    const navigate = useNavigate();
   const data = PriceChart()
+
+  useEffect(() => {
+    const accessToken = sessionStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      navigate('/'); // Redirect to home if no access token
+    }
+  }, [navigate]);
   return (
     <Container>
       <div className='w-full'>

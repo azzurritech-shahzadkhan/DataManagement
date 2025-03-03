@@ -13,7 +13,7 @@ const Cart = () => {
 const dispatch=useDispatch()
 const cartItemData = useSelector((state) => state.cartItem.products);
 const [totalValue,setTotalValue]=useState(0)
-    console.log("Cart Items state:", cartItemData);
+    // console.log("Cart Items state:", cartItemData);
 
   useEffect(()=>{ cartItemData.map((product)=>setTotalValue(product.totalPrice))},[cartItemData])
  
@@ -48,10 +48,9 @@ const handleIncreaseQty=(id)=>{
 
       const body = {
         products: [
-          {
-productName:"tablets",
-productPrice:123,
-
+           {
+            name: "tablets",  
+            price: 123,       
           }
         ]
          
@@ -61,7 +60,7 @@ productPrice:123,
         "Content-Type": "application/json",
       };
 
-      const response = await fetch("http://127.0.0.1:8000/api/create-checkout-session", {
+      const response = await fetch("http://127.0.0.1:8004/payments/create-checkout-session", {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
@@ -93,7 +92,7 @@ productPrice:123,
     <div className=' w-full px-8'>
 
     <div className=' mt-5 flex justify-end'>
-    <button className='bg-white px-4 py-1 cursor-pointer font-semibold text-gray-600 transition hover:bg-blue-500 hover:text-white rounded' onClick={()=>navigate("/billing")}>Back</button>
+    <button className='bg-white px-4 py-1 cursor-pointer font-semibold text-gray-600 transition hover:bg-blue-500 hover:text-white rounded' onClick={()=>navigate("/booking")}>Back</button>
     </div>
       <div className='mt-5 grid lg:grid-cols-3 grid-cols-1  gap-4'>
         <div className='col-span-2 border bg-gray-200 border-gray-400 p-3  rounded-[5px] z-40'>
