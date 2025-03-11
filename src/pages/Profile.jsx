@@ -6,9 +6,18 @@ const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState("");
 
+  const getCookie = (name) => {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) return value;
+    }
+    return null;
+};
+
   useEffect(() => {
     const fetchProfile = async () => {
-      const accessToken = sessionStorage.getItem("accessToken");
+      const accessToken =   getCookie("accessToken")||sessionStorage.getItem('accessToken');
 
       if (!accessToken) {
         setError("Access token not found. Please log in again.");

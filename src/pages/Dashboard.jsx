@@ -10,14 +10,23 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     const navigate = useNavigate();
   const data = PriceChart()
+    const getCookie = (name) => {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) return value;
+    }
+    return null;
+};
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken');
+    const accessToken = getCookie("accessToken")||sessionStorage.getItem('accessToken');
 
     if (!accessToken) {
-      navigate('/'); // Redirect to home if no access token
+      navigate('/'); 
     }
-  }, [navigate]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Container>
       <div className='w-full'>

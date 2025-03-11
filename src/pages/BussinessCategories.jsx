@@ -5,7 +5,7 @@ import Container from './Container'
 const BussinessCategories = () => {
   return (
     <Container>
-      <div className='grid xl:grid-cols-3 md:grid-cols-2 xl:gap-2  gap-5'>
+      <div className='grid xl:grid-cols-3 md:grid-cols-2 xl:gap-2  gap-5 '>
         {/* E_commerce */}
         <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
           <a href='#'>

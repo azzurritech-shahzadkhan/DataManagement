@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'lucide-react'
 import Container from './Container'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { CartItem } from '@/assets/mock-data/data'
 import { AddProduct, DecQuantity, IncQuantity } from '@/store/slices'
@@ -11,7 +11,25 @@ const Booking = () => {
   const dispatch = useDispatch()
   const cartProduct = useSelector(state => state.cartItem.products)
   // console.log('cartProduct is coming here', cartProduct)
+  const getCookie = (name) => {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) return value;
+    }
+    return null;
+};
 
+  useEffect(()=>{
+const access_token=getCookie("accessToken")||sessionStorage.getItem("accessToken");
+
+if(!access_token){
+navigate("/")
+
+}
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   const totalQuantity = cartProduct.reduce(
     (acc, product) => acc + product.quantity,
     0

@@ -1,88 +1,84 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 
-// Create an Axios instance
-const api = axios.create({
-  baseURL: 'https://data-mangement.vercel.app',
-  headers: { 'Content-Type': 'application/json' },
-});
 
-// Function to refresh access token
-const refreshAccessToken = async () => {
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import login, { parseJwt, setCookie } from "@/lib/login"; 
+
+const LoginForm = () => {
+  const [formData, setFormData] = useState({ email: "", password: "", rememberMe: false });
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+const handleLoginUser = async (e) => {
+  e.preventDefault();
+  setError("");
+
   try {
-    const refreshToken = document.cookie
-      .split('; ')
-      .find(row => row.startsWith('refreshToken='))
-      ?.split('=')[1];
+    const response = await login.post("/signin", formData);
 
-    if (!refreshToken) {
-      throw new Error('No refresh token available');
+    // Ensure response is successful
+    if (response.status !== 200) {
+      throw new Error("Login failed. Please try again.");
     }
 
-    const response = await axios.post(`${api.defaults.baseURL}/refresh-token`, {
-      refresh_token: refreshToken,
-    });
+    console.log("User data received:", response);
 
-    const newAccessToken = response.data.access_token;
-    sessionStorage.setItem('accessToken', newAccessToken);
-    return newAccessToken;
+    // Extract tokens & expiration times from response
+    const { 
+      access_token, 
+      refresh_token, 
+      access_token_expires_at, 
+      refresh_token_expires_at 
+    } = response.data;
+
+    // Validate tokens
+    if (!access_token || !refresh_token) {
+      throw new Error("Invalid login response. Missing tokens.");
+    }
+
+    // Convert expiration times from ISO format to timestamps
+    const accessExp = new Date(access_token_expires_at).getTime();
+    const refreshExp = new Date(refresh_token_expires_at).getTime();
+
+    if (formData.rememberMe) {
+      // Store access token & expiration in cookies
+      setCookie("accessToken", access_token, accessExp);
+      setCookie("accessExp", accessExp);
+
+      // Store refresh token & expiration in cookies
+      setCookie("refreshToken", refresh_token, refreshExp);
+      setCookie("refreshExp", refreshExp);
+    } else {
+      // Store access token in sessionStorage
+      sessionStorage.setItem("accessToken", access_token);
+      sessionStorage.setItem("accessExp", accessExp.toString());
+
+      // Refresh token should always persist in cookies
+      setCookie("refreshToken", refresh_token, refreshExp);
+      setCookie("refreshExp", refreshExp);
+    }
+
+    // Set Authorization Header for future requests
+    login.defaults.headers.Authorization = `Bearer ${access_token}`;
+
+    console.log("Login successful, redirecting...");
+    navigate("/bussiness-categories");
+
   } catch (err) {
-    console.error('Failed to refresh token:', err);
-    sessionStorage.removeItem('accessToken');
-    window.location.href = '/login'; // Redirect to login if refresh fails
-    throw err;
+    console.error("Login error:", err);
+    setError(err.message || "Login failed. Please try again.");
   }
 };
 
-// Axios Interceptor for auto-refreshing token
-api.interceptors.response.use(
-  response => response,
-  async error => {
-    const originalRequest = error.config;
-    if (error.response && error.response.status === 410 && !originalRequest._retry) {
-      originalRequest._retry = true;
-      try {
-        const newAccessToken = await refreshAccessToken();
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-        return api(originalRequest);
-      } catch (err) {
-        return Promise.reject(err);
-      }
-    }
-    return Promise.reject(error);
-  }
-);
 
-const LoginForm = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const navigate = useNavigate();
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleLoginUser = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await api.post('/signin', formData);
-      if (response.status === 200 && response.data.access_token) {
-        setSuccess('Login successful!');
-        sessionStorage.setItem('accessToken', response.data.access_token);
-        document.cookie = `refreshToken=${response.data.refresh_token}; path=/; max-age=${7 * 24 * 60 * 60}; Secure; SameSite=Strict`;
-        navigate('/bussiness-categories');
-      } else {
-        setError('Login failed. Invalid response from the server.');
-      }
-    } catch (err) {
-      setError('Login failed. Please try again later.');
-    }
-  };
 
   return (
     <form onSubmit={handleLoginUser}>
@@ -114,22 +110,57 @@ const LoginForm = () => {
         </div>
 
         {error && <p className='text-red-500 mt-2'>{error}</p>}
-        {success && <p className='text-green-500 mt-2'>{success}</p>}
+        {/* {success && <p className='text-green-500 mt-2'>{success}</p>} */}
+
+        <div className='xl:mt-[23.98px] mt-[15px] w-full'>
+          <label className='inline-flex items-center xl:mb-5 mb-3 cursor-pointer'>
+            <input
+              type='checkbox'
+              name='rememberMe'
+              className='sr-only peer'
+              checked={formData.rememberMe}
+              onChange={handleChange}
+            />
+            <div
+              className={`relative w-11 h-6 rounded-full 
+                peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800
+                dark:bg-gray-700 ${
+                  formData.rememberMe
+                    ? 'bg-blue-600 dark:bg-blue-600'
+                    : 'bg-gray-200'
+                }`}
+            >
+              <div
+                className={`absolute top-[2px] left-[2px] bg-white border-gray-300 border rounded-full w-5 h-5 transition-all 
+                ${formData.rememberMe ? 'translate-x-5 border-white' : ''}`}
+              ></div>
+            </div>
+            <span className='ml-3 xl:text-sm text-[12px] font-medium text-white'>
+              Remember me
+            </span>
+          </label>
+        </div>
 
         <div className='xl:mt-6 mt-4 w-full'>
-          <button type='submit' className='w-full bg-blue-500 text-white xl:py-3 lg:py-2 py-1 rounded-lg hover:bg-blue-600'>
+          <button
+            type='submit'
+            className='w-full bg-blue-500 text-white xl:py-3 lg:py-2 py-1 rounded-lg hover:bg-blue-600'
+          >
             SIGN IN
           </button>
         </div>
 
         <div className='mt-6 text-center'>
           <p className='text-white text-sm'>
-            Don't have an account? <Link to='/auth/Register' className='underline text-blue-400'>Sign up</Link>
+            Don&apos;t have an account?
+            <Link to='/register' className='underline text-blue-400'>
+              Sign up
+            </Link>
           </p>
         </div>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

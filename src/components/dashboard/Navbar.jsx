@@ -13,9 +13,19 @@ const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
   const [profileData, setProfileData] = useState(null)
   const [error, setError] = useState()
   const navigate = useNavigate()
+
+  const getCookie = name => {
+    const cookies = document.cookie.split(';')
+    for (let cookie of cookies) {
+      const [key, value] = cookie.split('=').map(c => c.trim());  
+      if (key === name) return value
+    }
+    return null
+  }
   useEffect(() => {
     const fetchProfile = async () => {
-      const accessToken = sessionStorage.getItem('accessToken')
+      const accessToken =getCookie("accessToken") || sessionStorage.getItem("accessToken")
+      console.log('access token is coming there', accessToken)
       if (!accessToken) {
         setError('Access token not found. Please log in again.')
         return
@@ -30,6 +40,7 @@ const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
           }
         )
         setProfileData(response.data)
+        console.log("profile data is coming here",response.data)
       } catch (error) {
         console.error('Error fetching profile:', error)
         setError('Failed to fetch profile. Please try again.')
@@ -41,8 +52,10 @@ const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
 
   const handleLogOut = () => {
     sessionStorage.removeItem('accessToken')
+    document.cookie = 'accessToken=; path=/; max-age=0; Secure; SameSite=Strict'
     document.cookie =
-      'refreshToken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Strict'
+      'refreshToken=; path=/; max-age=0; Secure; SameSite=Strict'
+    document.cookie = 'rememberMe=; path=/; max-age=0; Secure; SameSite=Strict'
     navigate('/')
   }
   return (
@@ -102,14 +115,13 @@ const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
                     <p className='text-xl font-bold'>{profileData?.username}</p>
                     <p>{profileData?.email}</p>
                     <div className='flex justify-center gap-20 mt-2'>
-                    
                       <button
                         className='border  w-20  px-2 rounded flex items-center justify-center text-sm py-1 hover:bg-blue-500 transition'
-                       onClick={()=>navigate('/profile')}
+                        onClick={() => navigate('/profile')}
                       >
                         Profile
                       </button>
-                        <button
+                      <button
                         className='border w-20  px-3 rounded flex items-center justify-center text-sm py-1 hover:bg-blue-500 transition'
                         onClick={handleLogOut}
                       >

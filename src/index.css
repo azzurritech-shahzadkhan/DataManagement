@@ -167,5 +167,6 @@ outline: none !important;
   border: none !important;
   
 }
-
-
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0px; 
+}
