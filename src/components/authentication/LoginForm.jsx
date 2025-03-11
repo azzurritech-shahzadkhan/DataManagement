@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import login, { parseJwt, setCookie } from "@/lib/login"; 
+import login, {setCookie } from "@/lib/login"; 
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "", rememberMe: false });
