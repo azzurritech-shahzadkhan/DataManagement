@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import man from '@/assets/images/man.jpg'
+import { deleteCookie } from '@/lib/login'
 
 const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
   const [isProfile, setProfile] = useState(false)
@@ -50,14 +51,16 @@ const Navbar = ({ isSidebarShow, setIsSidebarShow }) => {
     fetchProfile()
   }, [])
 
-  const handleLogOut = () => {
-    sessionStorage.removeItem('accessToken')
-    document.cookie = 'accessToken=; path=/; max-age=0; Secure; SameSite=Strict'
-    document.cookie =
-      'refreshToken=; path=/; max-age=0; Secure; SameSite=Strict'
-    document.cookie = 'rememberMe=; path=/; max-age=0; Secure; SameSite=Strict'
-    navigate('/')
-  }
+const handleLogOut = () => {
+  sessionStorage.removeItem("accessToken");
+  sessionStorage.removeItem("accessExp");
+  deleteCookie("accessToken");
+  deleteCookie("accessExp");
+  deleteCookie("refreshToken");
+  deleteCookie("refreshExp");
+  navigate("/");
+};
+
   return (
     <>
       <div className='text-white pt-[22.5px] flex justify-between pe-[47px]  px-4'>

@@ -14,3 +14,5 @@ export const isAuthenticated = () => {
     const accessToken = getCookie("accessToken") || sessionStorage.getItem("accessToken");
     return !!accessToken; 
 };
+
+console.log("access token duirng the user login is coming here afte rthe remeeb rme",isAuthenticated());

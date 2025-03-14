@@ -6,24 +6,7 @@ const login = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// Helper function to parse JWT
-export const parseJwt = (token) => {
-  try {
-    if (!token) return null;
-    const base64Url = token.split(".")[1];
-    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split("")
-        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-        .join("")
-    );
-    return JSON.parse(jsonPayload);
-  } catch (e) {
-    console.error("Invalid JWT:", e);
-    return null;
-  }
-};
+
 
 // Cookie Management
 export const getCookie = (name) => {
@@ -51,6 +34,7 @@ export const logoutUser = () => {
 export const refreshAccessToken = async () => {
   try {
     const refreshToken = getCookie("refreshToken");
+    console.log("refsrh token befor ete call to the refsrh tokend end point",refreshToken);
     const refreshExp = getCookie("refreshExp"); // Fetching directly from cookies
 
     // Validate refresh token and expiration time
@@ -65,6 +49,7 @@ export const refreshAccessToken = async () => {
       refresh_token: refreshToken,
     });
 
+    console.log( "refresh token api resposne is coming here",response);
     // Extract new access token & expiration time from response
     const { access_token, access_token_expires_at } = response.data;
 
@@ -78,8 +63,11 @@ export const refreshAccessToken = async () => {
     const newAccessExp = new Date(access_token_expires_at).getTime();
 
     // Update the access token in cookies
+
+
     setCookie("accessToken", access_token, newAccessExp);
     setCookie("accessExp", newAccessExp);
+      
 
     // Set Authorization Header for future requests
     login.defaults.headers.Authorization = `Bearer ${access_token}`;

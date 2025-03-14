@@ -48,7 +48,7 @@ export const sidebar = [
   {
     id: 1,
     title: 'Bussiness Categories',
-    link: '/bussiness-categories '
+    link: '/bussiness-categories'
     // icon:<DashboardIcon/>
   },
   {

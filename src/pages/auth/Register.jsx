@@ -1,6 +1,10 @@
-import RegisterForm from '@/components/authentication/RegisterForm'
+import RegisterForm from '@/components/authentication/RegisterTextForm'
+import { useState } from 'react'
+
 
 const Register = () => {
+   const [signInMethod, setSignInMethod] = useState(true)
+  
   return (
     <>
       <div className="grid min-h-screen overflow-hidden  xl:grid-cols-2 ">
@@ -30,8 +34,9 @@ const Register = () => {
                   project for free.
                 </p>
               </div>
+              
 
-              <RegisterForm />
+              <RegisterForm/>
             </div>
           </div>
         </div>

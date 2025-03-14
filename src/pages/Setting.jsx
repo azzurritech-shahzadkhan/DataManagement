@@ -1,37 +1,50 @@
-// import { useEffect } from 'react'
-import Container from './Container'
-// import { Navigate, useNavigate } from 'react-router'
-// import { isAuthenticated } from '@/lib/cookies'
+import { useState, useEffect } from 'react';
+import Container from './Container';
+import { getCookie } from '@/lib/cookies';
 
 const Setting = () => {
-  // const navigate = useNavigate()
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
-//    const getCookie = (name) => {
-//     const cookies = document.cookie.split("; ");
-//     for (let cookie of cookies) {
-//         const [key, value] = cookie.split("=");
-//         if (key === name) return value;
-//     }
-//     return null;
-// };
+  
 
+  useEffect(() => {
 
-//   useEffect(() => {
-//     const access_token =getCookie('accessToken') || sessionStorage.getItem('accessToken');
+    const cookie=getCookie("refreshToken")
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://data-mangement.vercel.app/refresh-token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            refresh_token: cookie,
+          }),
+        });
 
-//     if (!access_token) {
-//       navigate('/')
-//     }
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [])
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
 
+    fetchData();
+  }, []);
 
   return (
     <Container>
       <div>Setting</div>
+      {error && <p>Error: {error}</p>}
+      {data && <p className='text-wrap border'>accessToken:{JSON.stringify(data.access_token)}</p>}
+      {data && <p>Token Type:{JSON.stringify(data.token_type)}</p>}
     </Container>
-  )
-}
+  );
+};
 
-export default Setting
+export default Setting;
